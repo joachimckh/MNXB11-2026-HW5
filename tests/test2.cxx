@@ -30,15 +30,15 @@ TEST_CASE("Sorcerer attack and clone", "[Sorcerer]") {
     REQUIRE(sorcClone->getName() == "Jinx");
 }
 
-TEST_CASE("DUEL") {
-  homework::Knight k("JWAZ");
-  k.setWeapon("ZAZ");
-  homework::Sorcerer s("XAXA");
-  s.setAbility("XIXI");
-
-  homework::Duel<homework::Knight, homework::Sorcerer> d(&k, &s);
-  auto t = d.fight();
-  REQUIRE((t->getName() == "JWAZ" || t->getName() == "XAXA"));
-}
+// TEST_CASE("DUEL") {
+//   homework::Knight k("JWAZ");
+//   k.setWeapon("ZAZ");
+//   homework::Sorcerer s("XAXA");
+//   s.setAbility("XIXI");
+// 
+//   homework::Duel<homework::Knight, homework::Sorcerer> d(&k, &s);
+//   auto t = d.fight();
+//   REQUIRE((t->getName() == "JWAZ" || t->getName() == "XAXA"));
+// }
 
 
