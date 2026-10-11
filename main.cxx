@@ -9,6 +9,20 @@
 using namespace homework;
 
 int main() { 
-  
+
+    int a = 1;
+    int b = 2;
+    int c = 3;
+
+    std::cout << "Before swap: a = " << a << ", b = " << b << ", c = " << c << std::endl;
+    swap_ptr(&a, &b, &c);
+    std::cout << "After swap: a = " << a << ", b = " << b << ", c = " << c << std::endl;
+
+    UniqueData data(42);
+    std::cout << "Initial value in UniqueData: " << data.get() << std::endl;
+    
+    data.set(99);
+
+    std::cout << "Updated value in UniqueData: " << data.get() << std::endl;
 }
 
