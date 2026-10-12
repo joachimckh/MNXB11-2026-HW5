@@ -4,6 +4,7 @@
 #include <iostream>
 #include <random>
 #include <memory>
+#include <sstream>
 
 namespace homework {
 
@@ -49,6 +50,28 @@ namespace homework {
   // TO DO: implement attack() and clone() and setAbility()
   // Same as the Knight class
 
+  class Knight : public Entity {
+  public:
+    Knight(const std::string name) : Entity(name) {}
+    void attack() const override;
+    std::unique_ptr<Entity> clone() const override;
+    void setWeapon(const std::string weapon);
+
+  private:
+    std::string weapon_;
+  };
+
+  class Sorcerer : public Entity {
+  public:
+    Sorcerer(const std::string name) : Entity(name) {}
+    void attack() const override;
+    std::unique_ptr<Entity> clone() const override;
+    void setAbility(const std::string ability);
+
+  private:
+    std::string ability_;
+  };
+
 
 
   /////////
@@ -66,4 +89,3 @@ namespace homework {
   // - return a std::unique_ptr<Entity> to the winner (use clone() to copy the object)
 
 } // namespace homework
-
