@@ -4,6 +4,7 @@
  * */
 
 #include "as1.hpp"
+#include "as2.hpp"
 #include <iostream>
 
 using namespace homework;
@@ -24,5 +25,19 @@ int main() {
     data.set(99);
 
     std::cout << "Updated value in UniqueData: " << data.get() << std::endl;
-}
 
+    // Testing the Knight class
+
+    homework::Knight knight("King Arthur");
+    knight.setWeapon("sword");
+    knight.attack();
+
+    auto copy = knight.clone();
+    copy->attack();
+
+    homework::Sorcerer sorcerer("Merlin");
+    sorcerer.setAbility("spell");
+    sorcerer.attack();
+
+
+}
