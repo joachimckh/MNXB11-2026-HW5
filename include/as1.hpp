@@ -9,7 +9,8 @@ namespace homework {
   // ptr a should get the value of ptr b
   // ptr b should get the value of ptr c
   // ptr c should get the value of ptr a
-  void swap_ptr(int* a, int* b, int *c);
+  void swap_ptr(int* a, int* b, int* c);
+
 
   
   // As 1.2 Unique data class (https://en.cppreference.com/w/cpp/memory/unique_ptr.html)

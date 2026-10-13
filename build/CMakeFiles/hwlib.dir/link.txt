@@ -1,0 +1,2 @@
+/sw/easybuild_milan/software/binutils/2.40-GCCcore-12.3.0/bin/ar qc libhwlib.a CMakeFiles/hwlib.dir/src/as1.cxx.o CMakeFiles/hwlib.dir/src/as2.cxx.o
+/sw/easybuild_milan/software/binutils/2.40-GCCcore-12.3.0/bin/ranlib libhwlib.a
