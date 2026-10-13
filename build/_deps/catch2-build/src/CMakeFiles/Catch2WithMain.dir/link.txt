@@ -1,2 +1,0 @@
-/sw/easybuild_milan/software/binutils/2.40-GCCcore-12.3.0/bin/ar qc libCatch2Main.a CMakeFiles/Catch2WithMain.dir/catch2/internal/catch_main.cpp.o
-/sw/easybuild_milan/software/binutils/2.40-GCCcore-12.3.0/bin/ranlib libCatch2Main.a

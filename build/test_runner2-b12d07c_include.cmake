@@ -1,5 +1,0 @@
-if(EXISTS "/home/zu4347po/git/MNXB11-homework/homework5/MNXB11-2026-HW5/build/test_runner2-b12d07c_tests.cmake")
-  include("/home/zu4347po/git/MNXB11-homework/homework5/MNXB11-2026-HW5/build/test_runner2-b12d07c_tests.cmake")
-else()
-  add_test(test_runner2_NOT_BUILT-b12d07c test_runner2_NOT_BUILT-b12d07c)
-endif()
