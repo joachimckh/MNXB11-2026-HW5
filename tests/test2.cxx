@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch_test_macros.hpp>
-
+#include <sstream>
 #include "as2.hpp"
 
 
@@ -22,7 +22,7 @@ TEST_CASE("Sorcerer attack and clone", "[Sorcerer]") {
     sorcerer.setAbility("fireball");
     std::ostringstream oss;
     std::streambuf* oldCoutStreamBuf = std::cout.rdbuf();
-    std::cout.rdbuf(oss.rdbuf());
+   std::cout.rdbuf(oss.rdbuf());
     sorcerer.attack();
     std::cout.rdbuf(oldCoutStreamBuf);
     REQUIRE(oss.str() == "Jinx casts a fireball\n");
