@@ -4,6 +4,7 @@
 #include <iostream>
 #include <random>
 #include <memory>
+#include <sstream> //I added this because of an error, used ChatGPT for this
 
 namespace homework {
 
@@ -44,12 +45,50 @@ namespace homework {
   // The attack should use std::cout to print something like "<name> swings a <weapon>\n"
   // The setWeapon() method should set the weapon variable (the private member variable) 
 
+struct Knight : public Entity {
+    Knight(const std::string name) : Entity(name) {}
+
+    void attack() const override {
+        std::cout << name << " swings a " << weapon << "\n";
+    }
+
+    std::unique_ptr<Entity> clone() const override {
+        return std::make_unique<Knight>(*this);
+    }
+
+    void setWeapon(const std::string weapon) {
+        this->weapon = weapon;
+    }
+
+private:
+    std::string weapon;
+};
+
+
+
   // as 2.2
   // Derived class Sorcerer
   // TO DO: implement attack() and clone() and setAbility()
   // Same as the Knight class
 
+struct Sorcerer : public Entity {
+    Sorcerer(const std::string name) : Entity(name) {}
 
+    void attack() const override {
+        std::cout << name << " casts a " << ability << "\n";
+    }
+
+    std::unique_ptr<Entity> clone() const override {
+        return std::make_unique<Sorcerer>(*this);
+    }
+
+    void setAbility(const std::string ability) {
+        this->ability = ability;
+    }
+
+private:
+    std::string ability;
+};
 
   /////////
 
@@ -64,6 +103,32 @@ namespace homework {
   // - randomly select one of the two entities as the winner (use the random number generator above)
   // - print to std::cout "<name> wins the duel!\n"
   // - return a std::unique_ptr<Entity> to the winner (use clone() to copy the object)
+
+template <typename T1, typename T2>
+struct Duel {
+    Duel(T1* first, T2* second) : first{first}, second{second} {}
+
+    std::unique_ptr<Entity> fight() const {
+        first->attack();
+        second->attack();
+
+        Entity* winner;
+
+        if (dist(gen) < 0.5) {
+            winner = first;
+        } else {
+            winner = second;
+        }
+
+        std::cout << winner->getName() << " wins the duel!\n";
+
+        return winner->clone();
+    }
+
+private:
+    T1* first;
+    T2* second;
+};
 
 } // namespace homework
 
