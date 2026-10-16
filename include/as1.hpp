@@ -9,8 +9,8 @@ namespace homework {
   // ptr a should get the value of ptr b
   // ptr b should get the value of ptr c
   // ptr c should get the value of ptr a
-  void swap_ptr(int* a, int* b, int *c);
 
+  void swap_ptr(int* a, int* b, int *c);
   
   // As 1.2 Unique data class (https://en.cppreference.com/w/cpp/memory/unique_ptr.html)
   // TO DO: Implement the methods of this class in as1.cxx
@@ -21,14 +21,12 @@ namespace homework {
   // Hint: can use pointer arithmetics on a unique_ptr
   class UniqueData{
     public:
-      UniqueData(int value);
-      int get() const;
-      void set(int value);
-
+      UniqueData(int value); //constructor, creates int object and stores in heap
+      int get() const; //gets stored int
+      void set(int value); // changes stored int
 
     private:
-      std::unique_ptr<int> data_;
-
+      std::unique_ptr<int> data_; //pointer that owns int->is responsible for deleting it
   };
 
 
