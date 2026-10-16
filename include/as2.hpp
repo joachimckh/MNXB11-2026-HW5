@@ -33,9 +33,6 @@ namespace homework {
   
   ///////// EXERCISES BEGIN BELOW /////////
 
-
-
-
   // as 2.1
   // Derived class Knight
   // TO DO: implement attack() and clone() and setWeapon()
@@ -44,12 +41,34 @@ namespace homework {
   // The attack should use std::cout to print something like "<name> swings a <weapon>\n"
   // The setWeapon() method should set the weapon variable (the private member variable) 
 
+class Knight : public Entity {
+  public:
+    Knight(std::string name, std::string weapon = "");
+
+    void attack() const override;
+    std::unique_ptr<Entity> clone() const override;
+    void setWeapon(std::string newWeapon);
+
+  private:
+    std::string weapon;
+};
+
   // as 2.2
   // Derived class Sorcerer
   // TO DO: implement attack() and clone() and setAbility()
   // Same as the Knight class
 
+class Sorcerer : public Entity {
+  public:
+    Sorcerer(std::string name, std::string ability = "");
 
+    void attack() const override;
+    std::unique_ptr<Entity> clone() const override;
+    void setAbility(std::string newAbility);
+
+  private:
+    std::string ability;
+};
 
   /////////
 
