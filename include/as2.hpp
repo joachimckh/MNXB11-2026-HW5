@@ -4,6 +4,7 @@
 #include <iostream>
 #include <random>
 #include <memory>
+#include <utility>
 
 namespace homework {
 
@@ -33,9 +34,6 @@ namespace homework {
   
   ///////// EXERCISES BEGIN BELOW /////////
 
-
-
-
   // as 2.1
   // Derived class Knight
   // TO DO: implement attack() and clone() and setWeapon()
@@ -43,14 +41,34 @@ namespace homework {
   // Note: use std::make_unique in clone() and the \it{this} pointer to copy the object. E.g. std::make_unique<Type>(*this);
   // The attack should use std::cout to print something like "<name> swings a <weapon>\n"
   // The setWeapon() method should set the weapon variable (the private member variable) 
+  
+  class Knight : public Entity { //knite comes from entity -> can use fcns such as getName()
+    public:
+      Knight(const std::string& name);
+      void attack() const;
+      std::unique_ptr<Entity> clone() const;
+      void setWeapon(const std::string& weapon);
+    
+    private:
+      std::string weapon;
+  };
 
   // as 2.2
   // Derived class Sorcerer
   // TO DO: implement attack() and clone() and setAbility()
-  // Same as the Knight class
+  // Same as the Knight class8u
+  class Sorcerer : public Entity{
+    public:
+      Sorcerer(const std::string& name);
+      void attack() const;
+      std::unique_ptr<Entity> clone() const;
+      void setAbility(const std::string& ability);
+       
+    private:
+      std::string ability;
+  };
 
-
-
+} //namespace homework
   /////////
 
 
@@ -65,5 +83,4 @@ namespace homework {
   // - print to std::cout "<name> wins the duel!\n"
   // - return a std::unique_ptr<Entity> to the winner (use clone() to copy the object)
 
-} // namespace homework
 
