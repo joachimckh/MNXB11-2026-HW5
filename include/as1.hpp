@@ -19,11 +19,16 @@ namespace homework {
   // get returns the value stored in the heap
   // set sets the value stored in the heap
   // Hint: can use pointer arithmetics on a unique_ptr
-  class UniqueData{
+class UniqueData{
     public:
-      UniqueData(int value);
-      int get() const;
-      void set(int value);
+      explicit UniqueData(int value) : data_(std::make_unique<int>(value))
+      {}
+      int get() const {
+        return *data_;
+      }
+      void set(int value) {
+        data_ = std::make_unique<int>(value);
+      }
 
 
     private:
@@ -32,4 +37,4 @@ namespace homework {
   };
 
 
-} // namespace homework
+};// namespace homework
