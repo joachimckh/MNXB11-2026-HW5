@@ -44,12 +44,43 @@ namespace homework {
   // The attack should use std::cout to print something like "<name> swings a <weapon>\n"
   // The setWeapon() method should set the weapon variable (the private member variable) 
 
+
+struct Knight : public Entity {
+  public:
+    explicit Knight(const std::string name, std::string weapon);
+    explicit Knight(const std::string name); 
+    // explicit prevents unwanted/unknown objects from being created
+
+    void attack() const override;
+
+    void setWeapon(const std::string newWeapon);
+
+    std::unique_ptr<Entity> clone() const override;
+
+  private:
+    std::string weapon_;
+
+}; 
   // as 2.2
   // Derived class Sorcerer
   // TO DO: implement attack() and clone() and setAbility()
   // Same as the Knight class
 
 
+struct Sorcerer : public Entity {
+  public:
+    explicit Sorcerer(const std::string name);
+
+    void attack() const override;
+
+    void setAbility(const std::string newAbility);
+
+    std::unique_ptr<Entity> clone() const override;
+
+
+  private:
+    std::string ability_;
+};
 
   /////////
 

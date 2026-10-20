@@ -3,12 +3,15 @@
  *  Don't forget to add includes properly.
  * */
 
-#include "as1.hpp"
+#include "as2.hpp"
 #include <iostream>
 
 using namespace homework;
 
 int main() { 
-  
-}
+    auto knight = homework::Knight("Ben", "sword");
+    
+    knight.attack();
+    knight.setWeapon("axe");
+};
 
