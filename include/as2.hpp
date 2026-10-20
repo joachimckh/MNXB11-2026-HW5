@@ -4,6 +4,7 @@
 #include <iostream>
 #include <random>
 #include <memory>
+#include <sstream>
 
 namespace homework {
 
@@ -44,11 +45,46 @@ namespace homework {
   // The attack should use std::cout to print something like "<name> swings a <weapon>\n"
   // The setWeapon() method should set the weapon variable (the private member variable) 
 
+ struct Knight : Entity {
+    
+    explicit Knight(const std::string name) : Entity(name) {}
+    void attack() const override {
+        std::cout << getName() << " swings a " << weapon << "!\n";
+    }
+    std::unique_ptr<Entity> clone() const override {
+        return std::make_unique<Knight>(*this);
+    }
+    void setWeapon(const std::string& newWeapon) {
+        weapon = newWeapon;
+    }
+
+    private:
+        std::string weapon;
+  };
+
+
+
   // as 2.2
   // Derived class Sorcerer
   // TO DO: implement attack() and clone() and setAbility()
   // Same as the Knight class
 
+  struct Sorcerer : Entity {
+    
+    explicit Sorcerer(const std::string name) : Entity(name) {}
+    void attack() const override {
+        std::cout << getName() << " casts a " << ability << "!\n";
+    }
+    std::unique_ptr<Entity> clone() const override {
+        return std::make_unique<Sorcerer>(*this);
+    }
+    void setAbility(const std::string& newAbility) {
+        ability = newAbility;
+    }
+
+    private:
+        std::string ability;
+  };
 
 
   /////////
