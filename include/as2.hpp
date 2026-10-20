@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
 #include <random>
 #include <memory>
 
@@ -43,13 +44,35 @@ namespace homework {
   // Note: use std::make_unique in clone() and the \it{this} pointer to copy the object. E.g. std::make_unique<Type>(*this);
   // The attack should use std::cout to print something like "<name> swings a <weapon>\n"
   // The setWeapon() method should set the weapon variable (the private member variable) 
+  
+  class Knight : public Entity {
+  public:
+    explicit Knight(const std::string name) : Entity(name) {}
+
+    void attack() const override;
+    std::unique_ptr<Entity> clone() const override;
+    void setWeapon(const std::string& weapon);
+  
+  private:
+    std::string weapon;
+  };
 
   // as 2.2
   // Derived class Sorcerer
   // TO DO: implement attack() and clone() and setAbility()
   // Same as the Knight class
 
+  class Sorcerer : public Entity {
+  public:
+      explicit Sorcerer(const std::string name) : Entity(name) {}
 
+      void attack() const override;
+      std::unique_ptr<Entity> clone() const override;
+      void setAbility(const std::string& ability);
+
+  private:
+      std::string ability;
+  };
 
   /////////
 
@@ -65,5 +88,30 @@ namespace homework {
   // - print to std::cout "<name> wins the duel!\n"
   // - return a std::unique_ptr<Entity> to the winner (use clone() to copy the object)
 
+  template <typename T1, typename T2>
+  class Duel {
+  public:
+    Duel(T1* first, T2* second)
+        : first_{first}, second_{second} {}
+
+    std::unique_ptr<Entity> fight() const {
+        first_->attack();
+        second_->attack();
+
+        if (dist(gen) < 0.5) {
+            std::cout << first_->getName() << " wins the duel!\n";
+            return first_->clone();
+        } else {
+          std::cout << second_->getName() << " wins the duel!\n";
+            return second_->clone();
+        }
+    }
+
+private:
+    T1* first_;
+    T2* second_;
+};
+
+        
 } // namespace homework
 
