@@ -30,6 +30,33 @@ namespace homework {
     protected:
       std::string name;
   };
+
+  class Knight: public Entity{
+  public:
+  explicit Knight(const std::string& name);
+
+  void attack() const override;
+  std::unique_ptr<Entity> clone() const override;
+
+  void setWeapon(const std::string& weapon);
+
+  private:
+  std::string weapon_;
+};
+
+
+  class Sorcerer: public Entity{
+  public:
+  explicit Sorcerer(const std::string& name);
+
+  void attack() const override;
+  std::unique_ptr<Entity> clone() const override;
+
+  void setAbility(const std::string& ability);
+
+  private:
+  std::string ability_;
+};
   
   ///////// EXERCISES BEGIN BELOW /////////
 
@@ -66,4 +93,3 @@ namespace homework {
   // - return a std::unique_ptr<Entity> to the winner (use clone() to copy the object)
 
 } // namespace homework
-
