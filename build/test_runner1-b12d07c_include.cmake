@@ -1,0 +1,5 @@
+if(EXISTS "/home/aleka/git/MNXB11-2026-HW5-fork/build/test_runner1-b12d07c_tests.cmake")
+  include("/home/aleka/git/MNXB11-2026-HW5-fork/build/test_runner1-b12d07c_tests.cmake")
+else()
+  add_test(test_runner1_NOT_BUILT-b12d07c test_runner1_NOT_BUILT-b12d07c)
+endif()
